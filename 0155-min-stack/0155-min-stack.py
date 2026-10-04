@@ -5,13 +5,13 @@ class MinStack:
         self.min=[]
 
     def push(self, value: int) -> None:
-        self.values.insert(0,value)
+        self.values.append(value)
         if not self.min or value <= self.min[-1]:
             self.min.append(value)
 
     def pop(self) -> None:
         if self.values:
-            poped=self.values.pop(0)
+            poped=self.values.pop()
             if poped == self.min[-1]:
                 self.min.pop()
 
@@ -19,7 +19,7 @@ class MinStack:
         if (len(self.values)==0):
             raise Exception('Stack is empty')
         else:
-            return self.values[0]
+            return self.values[-1]
 
     def getMin(self) -> int:
         return self.min[-1]
